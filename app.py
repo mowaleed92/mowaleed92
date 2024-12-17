@@ -1,5 +1,5 @@
 import os
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram.ext import Updater, CommandHandler, MessageHandler, filters
 
 # Load bot token from environment variable
 BOT_TOKEN = os.getenv("BOT_TOKEN")
@@ -21,7 +21,7 @@ def main():
 
     # Add command and message handlers
     dp.add_handler(CommandHandler("start", start))
-    dp.add_handler(MessageHandler(Filters.text & ~Filters.command, echo))
+    dp.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo))
 
     # Start the bot
     updater.start_polling()
